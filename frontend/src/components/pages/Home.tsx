@@ -1,8 +1,9 @@
+import Header from "../shared/Header"
 
 const Home = ()=>{
     return (
         <>
-        
+            Home works!
         </>
     )
 }
