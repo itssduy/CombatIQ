@@ -1,10 +1,40 @@
 nav {
     display: flex;
     justify-content: space-evenly;
+    border: 1px black solid;
+}
+
+.logo {
+   
+}
+
+.logo:hover {
+    color: rgb(255, 0, 0)
 }
 
 .nav-list {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
+}
+
+.list-item {
+    color: black;
+    text-decoration: none;
+}
+
+@keyframes stretchOut {
+    from {
+
+    }
+}
+
+@keyframes underline {
+    from {
+        border-bottom: red 1px solid;
+    }
+    to {
+        border-bottom: red 1px solid;
+    }
 }

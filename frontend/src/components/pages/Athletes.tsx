@@ -1,17 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import type { Athlete } from '../../types/athlete.ts'
 
 const Athletes = ()=>{
-    const [useAthletes, setAthletes] = useState([])
+    const [getAthletes, setAthletes] = useState<Athlete[]>([])
+    
+    useEffect(()=>{
+        setAthletes([])
+    }, [])
+            
 
-    setAthletes([
-        {
-            "name": "Bob"
-
-        }
-    ])
     return (
         <>
             Athletes work!
+            <ul>
+                {getAthletes.map((fighter)=>{
+                    return (
+                    <li key={fighter.id}>
+                        <h3>{fighter.name}</h3>
+                    </li>)
+                })}
+
+            </ul>
+            
         </>
     )
 }
