@@ -1,17 +1,17 @@
 import type { Athlete } from '../types/athlete'
 
-const Athletes: Athlete[] = [
+const AthletesData: Athlete[] = [
             {
                 id: "0",
                 name: "Islam Makhachev",
-                sport: "UFC",
+                sport: "MMA",
                 wins: 0,
                 loses: 0,
             },
             {
                 id: "1",
                 name: "Dustin Porier",
-                sport: "UFC",
+                sport: "MMA",
                 wins: 0,
                 loses: 0,
             },
@@ -39,5 +39,5 @@ const Athletes: Athlete[] = [
         ]
 
 export {
-    Athletes
+	AthletesData
 }
