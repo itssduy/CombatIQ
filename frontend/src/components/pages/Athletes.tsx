@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react'
 import type { Athlete } from '../../types/athlete.ts'
-import AthletesData from '../../data/athletes.json'
 import { useParams } from 'react-router' 
 
 const Athletes = ()=>{
 	const {sport} = useParams(); 
 	const [getAthletes, setAthletes] = useState<Athlete[]>([])
     
-	useEffect(()=>{
-		try {
-			setAthletes(AthletesData);
-		} catch (err) {
-			console.log(err)
-			setAthletes([])
-		}
-	},[])
+  useEffect(()=>{
+    try {
+      (async ()=>{
+        const res = await fetch('/data/athletes.json');
+        const data = await res.json();
+        setAthletes(data.athletes);
+      })();
+    } catch (err) {
+      console.log(err)
+      setAthletes([])
+    }
+  },[])
 
 
     return (

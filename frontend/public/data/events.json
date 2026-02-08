@@ -1,0 +1,88 @@
+{
+  "events": [
+    {
+      "Id": "evt-001",
+      "Name": "Primal FC 12: Iron Will",
+      "Organization": "Primal Fighting Championship",
+      "Sport": "MMA",
+      "Location": "Las Vegas, NV, USA",
+      "Venue": "T-Mobile Arena",
+      "Date": "2026-03-15",
+      "StartTime": "18:00",
+      "Status": "scheduled"
+    },
+    {
+      "Id": "evt-002",
+      "Name": "Primal FC 13: Night of Kings",
+      "Organization": "Primal Fighting Championship",
+      "Sport": "MMA",
+      "Location": "New York, NY, USA",
+      "Venue": "Madison Square Garden",
+      "Date": "2026-05-02",
+      "StartTime": "19:00",
+      "Status": "scheduled"
+    },
+    {
+      "Id": "evt-003",
+      "Name": "Primal FC 11: Bloodline",
+      "Organization": "Primal Fighting Championship",
+      "Sport": "MMA",
+      "Location": "Chicago, IL, USA",
+      "Venue": "United Center",
+      "Date": "2026-01-20",
+      "StartTime": "18:30",
+      "Status": "completed"
+    }
+  ],
+  "fights": [
+    {
+      "Id": "fight-001",
+      "EventId": "evt-001",
+      "CardType": "main",
+      "WeightClass": "Lightweight",
+      "Rounds": 5,
+      "TitleFight": true,
+      "RedCornerId": "ath-004",
+      "BlueCornerId": "ath-001"
+    },
+    {
+      "Id": "fight-002",
+      "EventId": "evt-001",
+      "CardType": "co-main",
+      "WeightClass": "Bantamweight",
+      "Rounds": 3,
+      "TitleFight": false,
+      "RedCornerId": "ath-002",
+      "BlueCornerId": "ath-005"
+    },
+    {
+      "Id": "fight-003",
+      "EventId": "evt-003",
+      "CardType": "main",
+      "WeightClass": "Welterweight",
+      "Rounds": 5,
+      "TitleFight": true,
+      "RedCornerId": "ath-003",
+      "BlueCornerId": "ath-006",
+      "WinnerId": "ath-003",
+      "Method": "TKO",
+      "RoundEnded": 3,
+      "TimeEnded": "2:41"
+    }
+  ],
+  "bonuses": [
+    {
+      "Id": "bon-001",
+      "EventId": "evt-003",
+      "Type": "FOTN",
+      "AthleteId": "ath-003"
+    },
+    {
+      "Id": "bon-002",
+      "EventId": "evt-003",
+      "Type": "POTN",
+      "AthleteId": "ath-006"
+    }
+  ]
+}
+
