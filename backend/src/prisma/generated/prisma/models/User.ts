@@ -26,21 +26,21 @@ export type AggregateUser = {
 
 export type UserMinAggregateOutputType = {
   id: string | null
-  name: string | null
+  username: string | null
   hash: string | null
   created_at: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
   id: string | null
-  name: string | null
+  username: string | null
   hash: string | null
   created_at: Date | null
 }
 
 export type UserCountAggregateOutputType = {
   id: number
-  name: number
+  username: number
   hash: number
   created_at: number
   _all: number
@@ -49,21 +49,21 @@ export type UserCountAggregateOutputType = {
 
 export type UserMinAggregateInputType = {
   id?: true
-  name?: true
+  username?: true
   hash?: true
   created_at?: true
 }
 
 export type UserMaxAggregateInputType = {
   id?: true
-  name?: true
+  username?: true
   hash?: true
   created_at?: true
 }
 
 export type UserCountAggregateInputType = {
   id?: true
-  name?: true
+  username?: true
   hash?: true
   created_at?: true
   _all?: true
@@ -143,7 +143,7 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type UserGroupByOutputType = {
   id: string
-  name: string
+  username: string
   hash: string
   created_at: Date
   _count: UserCountAggregateOutputType | null
@@ -171,31 +171,31 @@ export type UserWhereInput = {
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringFilter<"User"> | string
+  username?: Prisma.StringFilter<"User"> | string
   hash?: Prisma.StringFilter<"User"> | string
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  username?: Prisma.SortOrder
   hash?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  username?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  name?: Prisma.StringFilter<"User"> | string
   hash?: Prisma.StringFilter<"User"> | string
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
-}, "id">
+}, "id" | "username">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  username?: Prisma.SortOrder
   hash?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -208,77 +208,77 @@ export type UserScalarWhereWithAggregatesInput = {
   OR?: Prisma.UserScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
-  name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  username?: Prisma.StringWithAggregatesFilter<"User"> | string
   hash?: Prisma.StringWithAggregatesFilter<"User"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
   id?: string
-  name: string
+  username: string
   hash: string
   created_at?: Date | string
 }
 
 export type UserUncheckedCreateInput = {
   id?: string
-  name: string
+  username: string
   hash: string
   created_at?: Date | string
 }
 
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCreateManyInput = {
   id?: string
-  name: string
+  username: string
   hash: string
   created_at?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
   hash?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  username?: Prisma.SortOrder
   hash?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  username?: Prisma.SortOrder
   hash?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  username?: Prisma.SortOrder
   hash?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -295,40 +295,40 @@ export type DateTimeFieldUpdateOperationsInput = {
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  username?: boolean
   hash?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  username?: boolean
   hash?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  username?: boolean
   hash?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
   id?: boolean
-  name?: boolean
+  username?: boolean
   hash?: boolean
   created_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "hash" | "created_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "username" | "hash" | "created_at", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    name: string
+    username: string
     hash: string
     created_at: Date
   }, ExtArgs["result"]["user"]>
@@ -755,7 +755,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
-  readonly name: Prisma.FieldRef<"User", 'String'>
+  readonly username: Prisma.FieldRef<"User", 'String'>
   readonly hash: Prisma.FieldRef<"User", 'String'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
 }
