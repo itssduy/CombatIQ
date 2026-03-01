@@ -47,6 +47,11 @@ export { Prisma }
  */
 export type Athlete = Prisma.AthleteModel
 /**
+ * Model Event
+ * 
+ */
+export type Event = Prisma.EventModel
+/**
  * Model User
  * 
  */
