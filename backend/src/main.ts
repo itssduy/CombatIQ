@@ -4,6 +4,7 @@ import "dotenv/config"
 //Routers
 import authRouter from './routes/auth.js'
 import userRouter from "./routes/users.js"
+import loggerMiddleware from "./middleware/logger.middleware.js"
 
 const PORT = process.env.PORT || 8080
 const app = express()
@@ -11,6 +12,7 @@ const app = express()
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
 
+app.use(loggerMiddleware)
 app.use("/auth", authRouter)
 app.use("/users", userRouter)
 
