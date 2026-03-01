@@ -386,6 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Athlete: 'Athlete',
   Event: 'Event',
+  Social: 'Social',
   User: 'User'
 } as const
 
@@ -402,7 +403,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "athlete" | "event" | "user"
+    modelProps: "athlete" | "event" | "social" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -554,6 +555,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Social: {
+      payload: Prisma.$SocialPayload<ExtArgs>
+      fields: Prisma.SocialFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SocialFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SocialFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        findFirst: {
+          args: Prisma.SocialFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SocialFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        findMany: {
+          args: Prisma.SocialFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>[]
+        }
+        create: {
+          args: Prisma.SocialCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        createMany: {
+          args: Prisma.SocialCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SocialCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>[]
+        }
+        delete: {
+          args: Prisma.SocialDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        update: {
+          args: Prisma.SocialUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        deleteMany: {
+          args: Prisma.SocialDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SocialUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SocialUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>[]
+        }
+        upsert: {
+          args: Prisma.SocialUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SocialPayload>
+        }
+        aggregate: {
+          args: Prisma.SocialAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSocial>
+        }
+        groupBy: {
+          args: Prisma.SocialGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SocialGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SocialCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SocialCountAggregateOutputType> | number
+        }
+      }
+    }
     User: {
       payload: Prisma.$UserPayload<ExtArgs>
       fields: Prisma.UserFieldRefs
@@ -685,6 +760,16 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const SocialScalarFieldEnum = {
+  id: 'id',
+  social: 'social',
+  url: 'url',
+  athleteId: 'athleteId'
+} as const
+
+export type SocialScalarFieldEnum = (typeof SocialScalarFieldEnum)[keyof typeof SocialScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -857,6 +942,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   athlete?: Prisma.AthleteOmit
   event?: Prisma.EventOmit
+  social?: Prisma.SocialOmit
   user?: Prisma.UserOmit
 }
 

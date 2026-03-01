@@ -1,0 +1,7 @@
+model Social {
+  id        String  @id @default(uuid())
+  social    String
+  url       String
+  athlete   Athlete @relation(fields: [athleteId], references: [id])
+  athleteId String
+}

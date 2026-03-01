@@ -182,6 +182,7 @@ export type AthleteWhereInput = {
   lastName?: Prisma.StringFilter<"Athlete"> | string
   nickname?: Prisma.StringFilter<"Athlete"> | string
   bio?: Prisma.StringFilter<"Athlete"> | string
+  socials?: Prisma.SocialListRelationFilter
 }
 
 export type AthleteOrderByWithRelationInput = {
@@ -190,6 +191,7 @@ export type AthleteOrderByWithRelationInput = {
   lastName?: Prisma.SortOrder
   nickname?: Prisma.SortOrder
   bio?: Prisma.SortOrder
+  socials?: Prisma.SocialOrderByRelationAggregateInput
 }
 
 export type AthleteWhereUniqueInput = Prisma.AtLeast<{
@@ -201,6 +203,7 @@ export type AthleteWhereUniqueInput = Prisma.AtLeast<{
   lastName?: Prisma.StringFilter<"Athlete"> | string
   nickname?: Prisma.StringFilter<"Athlete"> | string
   bio?: Prisma.StringFilter<"Athlete"> | string
+  socials?: Prisma.SocialListRelationFilter
 }, "id">
 
 export type AthleteOrderByWithAggregationInput = {
@@ -231,6 +234,7 @@ export type AthleteCreateInput = {
   lastName: string
   nickname: string
   bio: string
+  socials?: Prisma.SocialCreateNestedManyWithoutAthleteInput
 }
 
 export type AthleteUncheckedCreateInput = {
@@ -239,6 +243,7 @@ export type AthleteUncheckedCreateInput = {
   lastName: string
   nickname: string
   bio: string
+  socials?: Prisma.SocialUncheckedCreateNestedManyWithoutAthleteInput
 }
 
 export type AthleteUpdateInput = {
@@ -247,6 +252,7 @@ export type AthleteUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   nickname?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
+  socials?: Prisma.SocialUpdateManyWithoutAthleteNestedInput
 }
 
 export type AthleteUncheckedUpdateInput = {
@@ -255,6 +261,7 @@ export type AthleteUncheckedUpdateInput = {
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
   nickname?: Prisma.StringFieldUpdateOperationsInput | string
   bio?: Prisma.StringFieldUpdateOperationsInput | string
+  socials?: Prisma.SocialUncheckedUpdateManyWithoutAthleteNestedInput
 }
 
 export type AthleteCreateManyInput = {
@@ -305,10 +312,106 @@ export type AthleteMinOrderByAggregateInput = {
   bio?: Prisma.SortOrder
 }
 
+export type AthleteScalarRelationFilter = {
+  is?: Prisma.AthleteWhereInput
+  isNot?: Prisma.AthleteWhereInput
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type AthleteCreateNestedOneWithoutSocialsInput = {
+  create?: Prisma.XOR<Prisma.AthleteCreateWithoutSocialsInput, Prisma.AthleteUncheckedCreateWithoutSocialsInput>
+  connectOrCreate?: Prisma.AthleteCreateOrConnectWithoutSocialsInput
+  connect?: Prisma.AthleteWhereUniqueInput
+}
+
+export type AthleteUpdateOneRequiredWithoutSocialsNestedInput = {
+  create?: Prisma.XOR<Prisma.AthleteCreateWithoutSocialsInput, Prisma.AthleteUncheckedCreateWithoutSocialsInput>
+  connectOrCreate?: Prisma.AthleteCreateOrConnectWithoutSocialsInput
+  upsert?: Prisma.AthleteUpsertWithoutSocialsInput
+  connect?: Prisma.AthleteWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AthleteUpdateToOneWithWhereWithoutSocialsInput, Prisma.AthleteUpdateWithoutSocialsInput>, Prisma.AthleteUncheckedUpdateWithoutSocialsInput>
+}
+
+export type AthleteCreateWithoutSocialsInput = {
+  id?: string
+  firstName: string
+  lastName: string
+  nickname: string
+  bio: string
+}
+
+export type AthleteUncheckedCreateWithoutSocialsInput = {
+  id?: string
+  firstName: string
+  lastName: string
+  nickname: string
+  bio: string
+}
+
+export type AthleteCreateOrConnectWithoutSocialsInput = {
+  where: Prisma.AthleteWhereUniqueInput
+  create: Prisma.XOR<Prisma.AthleteCreateWithoutSocialsInput, Prisma.AthleteUncheckedCreateWithoutSocialsInput>
+}
+
+export type AthleteUpsertWithoutSocialsInput = {
+  update: Prisma.XOR<Prisma.AthleteUpdateWithoutSocialsInput, Prisma.AthleteUncheckedUpdateWithoutSocialsInput>
+  create: Prisma.XOR<Prisma.AthleteCreateWithoutSocialsInput, Prisma.AthleteUncheckedCreateWithoutSocialsInput>
+  where?: Prisma.AthleteWhereInput
+}
+
+export type AthleteUpdateToOneWithWhereWithoutSocialsInput = {
+  where?: Prisma.AthleteWhereInput
+  data: Prisma.XOR<Prisma.AthleteUpdateWithoutSocialsInput, Prisma.AthleteUncheckedUpdateWithoutSocialsInput>
+}
+
+export type AthleteUpdateWithoutSocialsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  nickname?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type AthleteUncheckedUpdateWithoutSocialsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  nickname?: Prisma.StringFieldUpdateOperationsInput | string
+  bio?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+
+/**
+ * Count Type AthleteCountOutputType
+ */
+
+export type AthleteCountOutputType = {
+  socials: number
+}
+
+export type AthleteCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  socials?: boolean | AthleteCountOutputTypeCountSocialsArgs
+}
+
+/**
+ * AthleteCountOutputType without action
+ */
+export type AthleteCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AthleteCountOutputType
+   */
+  select?: Prisma.AthleteCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AthleteCountOutputType without action
+ */
+export type AthleteCountOutputTypeCountSocialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SocialWhereInput
+}
 
 
 export type AthleteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -317,6 +420,8 @@ export type AthleteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   lastName?: boolean
   nickname?: boolean
   bio?: boolean
+  socials?: boolean | Prisma.Athlete$socialsArgs<ExtArgs>
+  _count?: boolean | Prisma.AthleteCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["athlete"]>
 
 export type AthleteSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -344,10 +449,18 @@ export type AthleteSelectScalar = {
 }
 
 export type AthleteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "nickname" | "bio", ExtArgs["result"]["athlete"]>
+export type AthleteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  socials?: boolean | Prisma.Athlete$socialsArgs<ExtArgs>
+  _count?: boolean | Prisma.AthleteCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type AthleteIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type AthleteIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $AthletePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Athlete"
-  objects: {}
+  objects: {
+    socials: Prisma.$SocialPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     firstName: string
@@ -748,6 +861,7 @@ readonly fields: AthleteFieldRefs;
  */
 export interface Prisma__AthleteClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  socials<T extends Prisma.Athlete$socialsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Athlete$socialsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SocialPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -799,6 +913,10 @@ export type AthleteFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * Filter, which Athlete to fetch.
    */
   where: Prisma.AthleteWhereUniqueInput
@@ -817,6 +935,10 @@ export type AthleteFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * Filter, which Athlete to fetch.
    */
   where: Prisma.AthleteWhereUniqueInput
@@ -834,6 +956,10 @@ export type AthleteFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Athlete
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
   /**
    * Filter, which Athlete to fetch.
    */
@@ -883,6 +1009,10 @@ export type AthleteFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * Filter, which Athlete to fetch.
    */
   where?: Prisma.AthleteWhereInput
@@ -931,6 +1061,10 @@ export type AthleteFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * Filter, which Athletes to fetch.
    */
   where?: Prisma.AthleteWhereInput
@@ -973,6 +1107,10 @@ export type AthleteCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Athlete
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
   /**
    * The data needed to create a Athlete.
    */
@@ -1021,6 +1159,10 @@ export type AthleteUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Athlete
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
   /**
    * The data needed to update a Athlete.
    */
@@ -1088,6 +1230,10 @@ export type AthleteUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * The filter to search for the Athlete to update in case it exists.
    */
   where: Prisma.AthleteWhereUniqueInput
@@ -1114,6 +1260,10 @@ export type AthleteDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
+  /**
    * Filter which Athlete to delete.
    */
   where: Prisma.AthleteWhereUniqueInput
@@ -1134,6 +1284,30 @@ export type AthleteDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Athlete.socials
+ */
+export type Athlete$socialsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Social
+   */
+  select?: Prisma.SocialSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Social
+   */
+  omit?: Prisma.SocialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SocialInclude<ExtArgs> | null
+  where?: Prisma.SocialWhereInput
+  orderBy?: Prisma.SocialOrderByWithRelationInput | Prisma.SocialOrderByWithRelationInput[]
+  cursor?: Prisma.SocialWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SocialScalarFieldEnum | Prisma.SocialScalarFieldEnum[]
+}
+
+/**
  * Athlete without action
  */
 export type AthleteDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1145,4 +1319,8 @@ export type AthleteDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Athlete
    */
   omit?: Prisma.AthleteOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AthleteInclude<ExtArgs> | null
 }

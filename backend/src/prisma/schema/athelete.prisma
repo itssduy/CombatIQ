@@ -1,7 +1,8 @@
 model Athlete {
-    id String @id @default(uuid())
-    firstName String
-    lastName String
-    nickname String
-    bio String
+  id        String    @id @default(uuid())
+  firstName String
+  lastName  String
+  nickname  String
+  bio       String
+  socials   Social[]
 }

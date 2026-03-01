@@ -28,6 +28,11 @@ export type Athlete = Prisma.AthleteModel
  */
 export type Event = Prisma.EventModel
 /**
+ * Model Social
+ * 
+ */
+export type Social = Prisma.SocialModel
+/**
  * Model User
  * 
  */

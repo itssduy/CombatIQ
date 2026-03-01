@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Athlete: 'Athlete',
   Event: 'Event',
+  Social: 'Social',
   User: 'User'
 } as const
 
@@ -90,6 +91,16 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const SocialScalarFieldEnum = {
+  id: 'id',
+  social: 'social',
+  url: 'url',
+  athleteId: 'athleteId'
+} as const
+
+export type SocialScalarFieldEnum = (typeof SocialScalarFieldEnum)[keyof typeof SocialScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {

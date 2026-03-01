@@ -1,5 +1,5 @@
 model Event {
-    id String @id @default(uuid())
-    name String
-    location String
+  id       String @id @default(uuid())
+  name     String
+  location String
 }
