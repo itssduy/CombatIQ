@@ -1,15 +1,14 @@
-import express from "express";
-import { Request, Response } from "express";
+import {Router, Request, Response} from "express"
 import hashUtil from "../utils/hash.js"
 import tokenUtil from "../utils/token.js"
 import { prisma } from "../db/prismaClient.js";
 
-const authRouter = express.Router()
+const authRouter = Router()
 
 authRouter.post("/login", async (req: Request, res: Response): Promise<void> =>{
-    const {username, password} = req.body;
     try {
 
+        const {username, password} = req.body;
         let hash = await hashUtil.hashPassword(password);
         if(!hash) {
             throw new Error("hashing failed");
@@ -21,8 +20,9 @@ authRouter.post("/login", async (req: Request, res: Response): Promise<void> =>{
         })
         if (!user) {
             res.status(404).json({message: "user not found"})
+            return
         }
-        res.json({
+        res.status(200).json({
             token: tokenUtil.createToken({
                 userId: user!.id,
                 iat: Date.now()
@@ -30,17 +30,16 @@ authRouter.post("/login", async (req: Request, res: Response): Promise<void> =>{
         });
     }
     catch (err) {
-        console.log(err)
-        res.json({
+        res.status(400).json({
             message: "error"
         })
     } 
 })
 
 authRouter.post("/signup", async (req: Request, res: Response): Promise<void> =>{
-    const {username, password} = req.body;
     
     try {
+        const {username, password} = req.body;
 
         let hash = await hashUtil.hashPassword(password);
         if(!hash) {
@@ -52,7 +51,7 @@ authRouter.post("/signup", async (req: Request, res: Response): Promise<void> =>
                 "hash": hash
             }
         })
-        res.json({
+        res.status(200).json({
             token: tokenUtil.createToken({
                 userId: newUser.id,
                 iat: Date.now()
@@ -60,8 +59,7 @@ authRouter.post("/signup", async (req: Request, res: Response): Promise<void> =>
         });
     }
     catch (err) {
-        console.log(err)
-        res.json({
+        res.status(400).json({
             message: "error"
         })
     }
