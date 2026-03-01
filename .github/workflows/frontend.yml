@@ -4,11 +4,9 @@ on:
   push:
     paths: 
       - "frontend/**"
-    branches: [ $default-branch ]
   pull_request:
     paths: 
       - "frontend/**"
-    branches: [ $default-branch ]
 
 jobs: 
   build:
