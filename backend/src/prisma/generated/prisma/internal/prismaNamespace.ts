@@ -384,6 +384,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Athlete: 'Athlete',
   User: 'User'
 } as const
 
@@ -400,10 +401,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user"
+    modelProps: "athlete" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Athlete: {
+      payload: Prisma.$AthletePayload<ExtArgs>
+      fields: Prisma.AthleteFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AthleteFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AthleteFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        findFirst: {
+          args: Prisma.AthleteFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AthleteFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        findMany: {
+          args: Prisma.AthleteFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>[]
+        }
+        create: {
+          args: Prisma.AthleteCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        createMany: {
+          args: Prisma.AthleteCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AthleteCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>[]
+        }
+        delete: {
+          args: Prisma.AthleteDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        update: {
+          args: Prisma.AthleteUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        deleteMany: {
+          args: Prisma.AthleteDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AthleteUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AthleteUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>[]
+        }
+        upsert: {
+          args: Prisma.AthleteUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthletePayload>
+        }
+        aggregate: {
+          args: Prisma.AthleteAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAthlete>
+        }
+        groupBy: {
+          args: Prisma.AthleteGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AthleteGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AthleteCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AthleteCountAggregateOutputType> | number
+        }
+      }
+    }
     User: {
       payload: Prisma.$UserPayload<ExtArgs>
       fields: Prisma.UserFieldRefs
@@ -515,6 +590,17 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const AthleteScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  nickname: 'nickname',
+  bio: 'bio'
+} as const
+
+export type AthleteScalarFieldEnum = (typeof AthleteScalarFieldEnum)[keyof typeof AthleteScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -685,6 +771,7 @@ export type PrismaClientOptions = ({
   comments?: runtime.SqlCommenterPlugin[]
 }
 export type GlobalOmitConfig = {
+  athlete?: Prisma.AthleteOmit
   user?: Prisma.UserOmit
 }
 

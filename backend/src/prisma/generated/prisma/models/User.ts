@@ -283,10 +283,6 @@ export type UserMinOrderByAggregateInput = {
   created_at?: Prisma.SortOrder
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }

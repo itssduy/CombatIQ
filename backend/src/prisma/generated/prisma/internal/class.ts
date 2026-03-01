@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.4.2",
   "engineVersion": "94a226be1cf2967af2541cca5529f0f7ba866919",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id         String   @id @default(uuid())\n  username   String   @unique\n  hash       String\n  created_at DateTime @default(now())\n}\n",
+  "inlineSchema": "model Athlete {\n  id        String @id @default(uuid())\n  firstName String\n  lastName  String\n  nickname  String\n  bio       String\n}\n\n// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id         String   @id @default(uuid())\n  username   String   @unique\n  hash       String\n  created_at DateTime @default(now())\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -32,10 +32,10 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Athlete\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"firstName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"lastName\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nickname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"bio\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 config.parameterizationSchema = {
-  strings: JSON.parse("[\"where\",\"User.findUnique\",\"User.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"User.findFirst\",\"User.findFirstOrThrow\",\"User.findMany\",\"data\",\"User.createOne\",\"User.createMany\",\"User.createManyAndReturn\",\"User.updateOne\",\"User.updateMany\",\"User.updateManyAndReturn\",\"create\",\"update\",\"User.upsertOne\",\"User.deleteOne\",\"User.deleteMany\",\"having\",\"_count\",\"_min\",\"_max\",\"User.groupBy\",\"User.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"username\",\"hash\",\"created_at\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"set\"]"),
-  graph: "KQkQBxoAACIAMBsAAAQAEBwAACIAMB0BAAAAAR4BAAAAAR8BACMAISBAACQAIQEAAAABACABAAAAAQAgBxoAACIAMBsAAAQAEBwAACIAMB0BACMAIR4BACMAIR8BACMAISBAACQAIQADAAAABAAgAwAABQAwBAAAAQAgAwAAAAQAIAMAAAUAMAQAAAEAIAMAAAAEACADAAAFADAEAAABACAEHQEAAAABHgEAAAABHwEAAAABIEAAAAABAQgAAAkAIAQdAQAAAAEeAQAAAAEfAQAAAAEgQAAAAAEBCAAACwAwAQgAAAsAMAQdAQAoACEeAQAoACEfAQAoACEgQAApACECAAAAAQAgCAAADgAgBB0BACgAIR4BACgAIR8BACgAISBAACkAIQIAAAAEACAIAAAQACACAAAABAAgCAAAEAAgAwAAAAEAIA8AAAkAIBAAAA4AIAEAAAABACABAAAABAAgAxUAACUAIBYAACcAIBcAACYAIAcaAAAaADAbAAAXABAcAAAaADAdAQAbACEeAQAbACEfAQAbACEgQAAcACEDAAAABAAgAwAAFgAwFAAAFwAgAwAAAAQAIAMAAAUAMAQAAAEAIAcaAAAaADAbAAAXABAcAAAaADAdAQAbACEeAQAbACEfAQAbACEgQAAcACEOFQAAHgAgFgAAIQAgFwAAIQAgIQEAAAABIgEAAAAEIwEAAAAEJAEAAAABJQEAAAABJgEAAAABJwEAAAABKAEAIAAhKQEAAAABKgEAAAABKwEAAAABCxUAAB4AIBYAAB8AIBcAAB8AICFAAAAAASJAAAAABCNAAAAABCRAAAAAASVAAAAAASZAAAAAASdAAAAAAShAAB0AIQsVAAAeACAWAAAfACAXAAAfACAhQAAAAAEiQAAAAAQjQAAAAAQkQAAAAAElQAAAAAEmQAAAAAEnQAAAAAEoQAAdACEIIQIAAAABIgIAAAAEIwIAAAAEJAIAAAABJQIAAAABJgIAAAABJwIAAAABKAIAHgAhCCFAAAAAASJAAAAABCNAAAAABCRAAAAAASVAAAAAASZAAAAAASdAAAAAAShAAB8AIQ4VAAAeACAWAAAhACAXAAAhACAhAQAAAAEiAQAAAAQjAQAAAAQkAQAAAAElAQAAAAEmAQAAAAEnAQAAAAEoAQAgACEpAQAAAAEqAQAAAAErAQAAAAELIQEAAAABIgEAAAAEIwEAAAAEJAEAAAABJQEAAAABJgEAAAABJwEAAAABKAEAIQAhKQEAAAABKgEAAAABKwEAAAABBxoAACIAMBsAAAQAEBwAACIAMB0BACMAIR4BACMAIR8BACMAISBAACQAIQshAQAAAAEiAQAAAAQjAQAAAAQkAQAAAAElAQAAAAEmAQAAAAEnAQAAAAEoAQAhACEpAQAAAAEqAQAAAAErAQAAAAEIIUAAAAABIkAAAAAEI0AAAAAEJEAAAAABJUAAAAABJkAAAAABJ0AAAAABKEAAHwAhAAAAASwBAAAAAQEsQAAAAAEAAAAAAxUABhYABxcACAAAAAMVAAYWAAcXAAgBAgECAwEFBgEGBwEHCAEJCgEKDAILDQMMDwENEQIOEgQREwESFAETFQIYGAUZGQk"
+  strings: JSON.parse("[\"where\",\"Athlete.findUnique\",\"Athlete.findUniqueOrThrow\",\"orderBy\",\"cursor\",\"Athlete.findFirst\",\"Athlete.findFirstOrThrow\",\"Athlete.findMany\",\"data\",\"Athlete.createOne\",\"Athlete.createMany\",\"Athlete.createManyAndReturn\",\"Athlete.updateOne\",\"Athlete.updateMany\",\"Athlete.updateManyAndReturn\",\"create\",\"update\",\"Athlete.upsertOne\",\"Athlete.deleteOne\",\"Athlete.deleteMany\",\"having\",\"_count\",\"_min\",\"_max\",\"Athlete.groupBy\",\"Athlete.aggregate\",\"User.findUnique\",\"User.findUniqueOrThrow\",\"User.findFirst\",\"User.findFirstOrThrow\",\"User.findMany\",\"User.createOne\",\"User.createMany\",\"User.createManyAndReturn\",\"User.updateOne\",\"User.updateMany\",\"User.updateManyAndReturn\",\"User.upsertOne\",\"User.deleteOne\",\"User.deleteMany\",\"User.groupBy\",\"User.aggregate\",\"AND\",\"OR\",\"NOT\",\"id\",\"username\",\"hash\",\"created_at\",\"equals\",\"in\",\"notIn\",\"lt\",\"lte\",\"gt\",\"gte\",\"not\",\"contains\",\"startsWith\",\"endsWith\",\"firstName\",\"lastName\",\"nickname\",\"bio\",\"set\"]"),
+  graph: "RxEgCCoAAD8AMCsAAAQAECwAAD8AMC0BAAAAATwBADwAIT0BADwAIT4BADwAIT8BADwAIQEAAAABACABAAAAAQAgCCoAAD8AMCsAAAQAECwAAD8AMC0BADwAITwBADwAIT0BADwAIT4BADwAIT8BADwAIQADAAAABAAgAwAABQAwBAAAAQAgAwAAAAQAIAMAAAUAMAQAAAEAIAMAAAAEACADAAAFADAEAAABACAFLQEAAAABPAEAAAABPQEAAAABPgEAAAABPwEAAAABAQgAAAkAIAUtAQAAAAE8AQAAAAE9AQAAAAE-AQAAAAE_AQAAAAEBCAAACwAwAQgAAAsAMAUtAQBDACE8AQBDACE9AQBDACE-AQBDACE_AQBDACECAAAAAQAgCAAADgAgBS0BAEMAITwBAEMAIT0BAEMAIT4BAEMAIT8BAEMAIQIAAAAEACAIAAAQACACAAAABAAgCAAAEAAgAwAAAAEAIA8AAAkAIBAAAA4AIAEAAAABACABAAAABAAgAxUAAEUAIBYAAEcAIBcAAEYAIAgqAAA-ADArAAAXABAsAAA-ADAtAQA0ACE8AQA0ACE9AQA0ACE-AQA0ACE_AQA0ACEDAAAABAAgAwAAFgAwFAAAFwAgAwAAAAQAIAMAAAUAMAQAAAEAIAcqAAA7ADArAAAdABAsAAA7ADAtAQAAAAEuAQAAAAEvAQA8ACEwQAA9ACEBAAAAGgAgAQAAABoAIAcqAAA7ADArAAAdABAsAAA7ADAtAQA8ACEuAQA8ACEvAQA8ACEwQAA9ACEAAwAAAB0AIAMAAB4AMAQAABoAIAMAAAAdACADAAAeADAEAAAaACADAAAAHQAgAwAAHgAwBAAAGgAgBC0BAAAAAS4BAAAAAS8BAAAAATBAAAAAAQEIAAAiACAELQEAAAABLgEAAAABLwEAAAABMEAAAAABAQgAACQAMAEIAAAkADAELQEAQwAhLgEAQwAhLwEAQwAhMEAARAAhAgAAABoAIAgAACcAIAQtAQBDACEuAQBDACEvAQBDACEwQABEACECAAAAHQAgCAAAKQAgAgAAAB0AIAgAACkAIAMAAAAaACAPAAAiACAQAAAnACABAAAAGgAgAQAAAB0AIAMVAABAACAWAABCACAXAABBACAHKgAAMwAwKwAAMAAQLAAAMwAwLQEANAAhLgEANAAhLwEANAAhMEAANQAhAwAAAB0AIAMAAC8AMBQAADAAIAMAAAAdACADAAAeADAEAAAaACAHKgAAMwAwKwAAMAAQLAAAMwAwLQEANAAhLgEANAAhLwEANAAhMEAANQAhDhUAADcAIBYAADoAIBcAADoAIDEBAAAAATIBAAAABDMBAAAABDQBAAAAATUBAAAAATYBAAAAATcBAAAAATgBADkAITkBAAAAAToBAAAAATsBAAAAAQsVAAA3ACAWAAA4ACAXAAA4ACAxQAAAAAEyQAAAAAQzQAAAAAQ0QAAAAAE1QAAAAAE2QAAAAAE3QAAAAAE4QAA2ACELFQAANwAgFgAAOAAgFwAAOAAgMUAAAAABMkAAAAAEM0AAAAAENEAAAAABNUAAAAABNkAAAAABN0AAAAABOEAANgAhCDECAAAAATICAAAABDMCAAAABDQCAAAAATUCAAAAATYCAAAAATcCAAAAATgCADcAIQgxQAAAAAEyQAAAAAQzQAAAAAQ0QAAAAAE1QAAAAAE2QAAAAAE3QAAAAAE4QAA4ACEOFQAANwAgFgAAOgAgFwAAOgAgMQEAAAABMgEAAAAEMwEAAAAENAEAAAABNQEAAAABNgEAAAABNwEAAAABOAEAOQAhOQEAAAABOgEAAAABOwEAAAABCzEBAAAAATIBAAAABDMBAAAABDQBAAAAATUBAAAAATYBAAAAATcBAAAAATgBADoAITkBAAAAAToBAAAAATsBAAAAAQcqAAA7ADArAAAdABAsAAA7ADAtAQA8ACEuAQA8ACEvAQA8ACEwQAA9ACELMQEAAAABMgEAAAAEMwEAAAAENAEAAAABNQEAAAABNgEAAAABNwEAAAABOAEAOgAhOQEAAAABOgEAAAABOwEAAAABCDFAAAAAATJAAAAABDNAAAAABDRAAAAAATVAAAAAATZAAAAAATdAAAAAAThAADgAIQgqAAA-ADArAAAXABAsAAA-ADAtAQA0ACE8AQA0ACE9AQA0ACE-AQA0ACE_AQA0ACEIKgAAPwAwKwAABAAQLAAAPwAwLQEAPAAhPAEAPAAhPQEAPAAhPgEAPAAhPwEAPAAhAAAAAUABAAAAAQFAQAAAAAEAAAAAAAAAAxUABhYABxcACAAAAAMVAAYWAAcXAAgAAAADFQAOFgAPFwAQAAAAAxUADhYADxcAEAECAQIDAQUGAQYHAQcIAQkKAQoMAgsNAwwPAQ0RAg4SBBETARIUARMVAhgYBRkZCRobChscChwfCh0gCh4hCh8jCiAlAiEmCyIoCiMqAiQrDCUsCiYtCicuAigxDSkyEQ"
 }
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
@@ -70,8 +70,8 @@ export interface PrismaClientConstructor {
    * const prisma = new PrismaClient({
    *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
    * })
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Athletes
+   * const athletes = await prisma.athlete.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -94,8 +94,8 @@ export interface PrismaClientConstructor {
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Athletes
+ * const athletes = await prisma.athlete.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -189,6 +189,16 @@ export interface PrismaClient<
   }>>
 
       /**
+   * `prisma.athlete`: Exposes CRUD operations for the **Athlete** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Athletes
+    * const athletes = await prisma.athlete.findMany()
+    * ```
+    */
+  get athlete(): Prisma.AthleteDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
