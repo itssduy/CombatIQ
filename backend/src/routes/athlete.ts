@@ -67,3 +67,30 @@ athleteRouter.delete("/:atheleteId", async (req: Request, res: Response) => {
         res.send(400).json({message: "error"})
     }
 })
+
+athleteRouter.put("/:athleteId", async (req: Request, res: Response) => {
+    try {
+        const {athleteId} = req.params
+        const {firstName, lastName, nickname, bio, socials} = req.body
+
+        if (typeof athleteId !== "string") {
+            return res.status(400).json({message: "invalid id"})
+        }
+        await prisma.athlete.update({
+            where: {
+                id: athleteId
+            },
+            data: {
+                firstName,
+                lastName,
+                nickname,
+                bio,
+                socials
+            }
+        })
+        return res.status(200).json({message: "successfully updated athlete"})
+    }
+    catch (err) {
+        res.status(400).json({message: "unkown error"})
+    }
+})
