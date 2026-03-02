@@ -385,7 +385,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Athlete: 'Athlete',
+  AthleteoOnOrganization: 'AthleteoOnOrganization',
   Event: 'Event',
+  Organization: 'Organization',
   Social: 'Social',
   User: 'User',
   weightClass: 'weightClass'
@@ -404,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "athlete" | "event" | "social" | "user" | "weightClass"
+    modelProps: "athlete" | "athleteoOnOrganization" | "event" | "organization" | "social" | "user" | "weightClass"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -482,6 +484,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AthleteoOnOrganization: {
+      payload: Prisma.$AthleteoOnOrganizationPayload<ExtArgs>
+      fields: Prisma.AthleteoOnOrganizationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AthleteoOnOrganizationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AthleteoOnOrganizationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        findFirst: {
+          args: Prisma.AthleteoOnOrganizationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AthleteoOnOrganizationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        findMany: {
+          args: Prisma.AthleteoOnOrganizationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>[]
+        }
+        create: {
+          args: Prisma.AthleteoOnOrganizationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        createMany: {
+          args: Prisma.AthleteoOnOrganizationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AthleteoOnOrganizationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>[]
+        }
+        delete: {
+          args: Prisma.AthleteoOnOrganizationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        update: {
+          args: Prisma.AthleteoOnOrganizationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        deleteMany: {
+          args: Prisma.AthleteoOnOrganizationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AthleteoOnOrganizationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AthleteoOnOrganizationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>[]
+        }
+        upsert: {
+          args: Prisma.AthleteoOnOrganizationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AthleteoOnOrganizationPayload>
+        }
+        aggregate: {
+          args: Prisma.AthleteoOnOrganizationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAthleteoOnOrganization>
+        }
+        groupBy: {
+          args: Prisma.AthleteoOnOrganizationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AthleteoOnOrganizationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AthleteoOnOrganizationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AthleteoOnOrganizationCountAggregateOutputType> | number
+        }
+      }
+    }
     Event: {
       payload: Prisma.$EventPayload<ExtArgs>
       fields: Prisma.EventFieldRefs
@@ -553,6 +629,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.EventCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.EventCountAggregateOutputType> | number
+        }
+      }
+    }
+    Organization: {
+      payload: Prisma.$OrganizationPayload<ExtArgs>
+      fields: Prisma.OrganizationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrganizationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrganizationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        findFirst: {
+          args: Prisma.OrganizationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrganizationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        findMany: {
+          args: Prisma.OrganizationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>[]
+        }
+        create: {
+          args: Prisma.OrganizationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        createMany: {
+          args: Prisma.OrganizationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrganizationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>[]
+        }
+        delete: {
+          args: Prisma.OrganizationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        update: {
+          args: Prisma.OrganizationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrganizationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrganizationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrganizationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrganizationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizationPayload>
+        }
+        aggregate: {
+          args: Prisma.OrganizationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrganization>
+        }
+        groupBy: {
+          args: Prisma.OrganizationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrganizationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrganizationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrganizationCountAggregateOutputType> | number
         }
       }
     }
@@ -829,6 +979,15 @@ export const AthleteScalarFieldEnum = {
 export type AthleteScalarFieldEnum = (typeof AthleteScalarFieldEnum)[keyof typeof AthleteScalarFieldEnum]
 
 
+export const AthleteoOnOrganizationScalarFieldEnum = {
+  id: 'id',
+  athleteId: 'athleteId',
+  organziationId: 'organziationId'
+} as const
+
+export type AthleteoOnOrganizationScalarFieldEnum = (typeof AthleteoOnOrganizationScalarFieldEnum)[keyof typeof AthleteoOnOrganizationScalarFieldEnum]
+
+
 export const EventScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -836,6 +995,14 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+} as const
+
+export type OrganizationScalarFieldEnum = (typeof OrganizationScalarFieldEnum)[keyof typeof OrganizationScalarFieldEnum]
 
 
 export const SocialScalarFieldEnum = {
@@ -1041,7 +1208,9 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   athlete?: Prisma.AthleteOmit
+  athleteoOnOrganization?: Prisma.AthleteoOnOrganizationOmit
   event?: Prisma.EventOmit
+  organization?: Prisma.OrganizationOmit
   social?: Prisma.SocialOmit
   user?: Prisma.UserOmit
   weightClass?: Prisma.weightClassOmit

@@ -9,7 +9,9 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Athlete.js'
+export type * from './models/AthleteoOnOrganization.js'
 export type * from './models/Event.js'
+export type * from './models/Organization.js'
 export type * from './models/Social.js'
 export type * from './models/User.js'
 export type * from './models/weightClass.js'

@@ -52,7 +52,9 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Athlete: 'Athlete',
+  AthleteoOnOrganization: 'AthleteoOnOrganization',
   Event: 'Event',
+  Organization: 'Organization',
   Social: 'Social',
   User: 'User',
   weightClass: 'weightClass'
@@ -86,6 +88,15 @@ export const AthleteScalarFieldEnum = {
 export type AthleteScalarFieldEnum = (typeof AthleteScalarFieldEnum)[keyof typeof AthleteScalarFieldEnum]
 
 
+export const AthleteoOnOrganizationScalarFieldEnum = {
+  id: 'id',
+  athleteId: 'athleteId',
+  organziationId: 'organziationId'
+} as const
+
+export type AthleteoOnOrganizationScalarFieldEnum = (typeof AthleteoOnOrganizationScalarFieldEnum)[keyof typeof AthleteoOnOrganizationScalarFieldEnum]
+
+
 export const EventScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -93,6 +104,14 @@ export const EventScalarFieldEnum = {
 } as const
 
 export type EventScalarFieldEnum = (typeof EventScalarFieldEnum)[keyof typeof EventScalarFieldEnum]
+
+
+export const OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+} as const
+
+export type OrganizationScalarFieldEnum = (typeof OrganizationScalarFieldEnum)[keyof typeof OrganizationScalarFieldEnum]
 
 
 export const SocialScalarFieldEnum = {

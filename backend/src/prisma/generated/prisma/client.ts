@@ -47,10 +47,20 @@ export { Prisma }
  */
 export type Athlete = Prisma.AthleteModel
 /**
+ * Model AthleteoOnOrganization
+ * 
+ */
+export type AthleteoOnOrganization = Prisma.AthleteoOnOrganizationModel
+/**
  * Model Event
  * 
  */
 export type Event = Prisma.EventModel
+/**
+ * Model Organization
+ * 
+ */
+export type Organization = Prisma.OrganizationModel
 /**
  * Model Social
  * 
