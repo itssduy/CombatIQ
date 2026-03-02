@@ -29,3 +29,21 @@ athleteRouter.get(":athleteId", async (req: Request, res: Response) => {
         res.status(400).json({message: "error"})
     }
 })
+
+athleteRouter.post("", async (req: Request, res: Response) => {
+    try {
+        const {firstName, lastName, nickname, bio} = req.body
+
+        await prisma.athlete.create({
+            data: {
+                firstName,
+                lastName,
+                nickname,
+                bio,
+            }
+        })
+        res.json(200).json({message: "successfully created athlete"})
+    } catch (err) {
+        res.status(400).json({message: "error"})
+    }
+})
