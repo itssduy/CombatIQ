@@ -1,0 +1,7 @@
+model weightClass {
+    id String @id @default(uuid())
+    name String
+    upper Int
+    lower Int
+    athletes Athlete[]
+}

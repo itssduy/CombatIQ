@@ -54,7 +54,8 @@ export const ModelName = {
   Athlete: 'Athlete',
   Event: 'Event',
   Social: 'Social',
-  User: 'User'
+  User: 'User',
+  weightClass: 'weightClass'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -78,7 +79,8 @@ export const AthleteScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   nickname: 'nickname',
-  bio: 'bio'
+  bio: 'bio',
+  weightClassId: 'weightClassId'
 } as const
 
 export type AthleteScalarFieldEnum = (typeof AthleteScalarFieldEnum)[keyof typeof AthleteScalarFieldEnum]
@@ -111,6 +113,16 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const WeightClassScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  upper: 'upper',
+  lower: 'lower'
+} as const
+
+export type WeightClassScalarFieldEnum = (typeof WeightClassScalarFieldEnum)[keyof typeof WeightClassScalarFieldEnum]
 
 
 export const SortOrder = {

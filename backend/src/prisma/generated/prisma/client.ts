@@ -61,3 +61,8 @@ export type Social = Prisma.SocialModel
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model weightClass
+ * 
+ */
+export type weightClass = Prisma.weightClassModel

@@ -387,7 +387,8 @@ export const ModelName = {
   Athlete: 'Athlete',
   Event: 'Event',
   Social: 'Social',
-  User: 'User'
+  User: 'User',
+  weightClass: 'weightClass'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "athlete" | "event" | "social" | "user"
+    modelProps: "athlete" | "event" | "social" | "user" | "weightClass"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +704,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    weightClass: {
+      payload: Prisma.$weightClassPayload<ExtArgs>
+      fields: Prisma.weightClassFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.weightClassFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.weightClassFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        findFirst: {
+          args: Prisma.weightClassFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.weightClassFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        findMany: {
+          args: Prisma.weightClassFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>[]
+        }
+        create: {
+          args: Prisma.weightClassCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        createMany: {
+          args: Prisma.weightClassCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.weightClassCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>[]
+        }
+        delete: {
+          args: Prisma.weightClassDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        update: {
+          args: Prisma.weightClassUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        deleteMany: {
+          args: Prisma.weightClassDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.weightClassUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.weightClassUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>[]
+        }
+        upsert: {
+          args: Prisma.weightClassUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$weightClassPayload>
+        }
+        aggregate: {
+          args: Prisma.WeightClassAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWeightClass>
+        }
+        groupBy: {
+          args: Prisma.weightClassGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WeightClassGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.weightClassCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WeightClassCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -747,7 +822,8 @@ export const AthleteScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   nickname: 'nickname',
-  bio: 'bio'
+  bio: 'bio',
+  weightClassId: 'weightClassId'
 } as const
 
 export type AthleteScalarFieldEnum = (typeof AthleteScalarFieldEnum)[keyof typeof AthleteScalarFieldEnum]
@@ -780,6 +856,16 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+export const WeightClassScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  upper: 'upper',
+  lower: 'lower'
+} as const
+
+export type WeightClassScalarFieldEnum = (typeof WeightClassScalarFieldEnum)[keyof typeof WeightClassScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -843,6 +929,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -944,6 +1044,7 @@ export type GlobalOmitConfig = {
   event?: Prisma.EventOmit
   social?: Prisma.SocialOmit
   user?: Prisma.UserOmit
+  weightClass?: Prisma.weightClassOmit
 }
 
 /* Types for Logging */
