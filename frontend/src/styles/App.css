@@ -1,3 +1,75 @@
 main {
-  margin-top: 30px;
+  margin: 1rem auto 0;
+  max-width: 1200px;
+  padding: 0 1rem 1.5rem;
+}
+
+.home {
+  background: #ffffff;
+  border: 2px solid #111111;
+  padding: 1rem;
+}
+
+.home h2 {
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.sport-cards {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.sport-card {
+  background: #ffffff;
+  border: 2px solid #111111;
+  display: block;
+  min-height: 90px;
+  padding: 0.85rem;
+  text-decoration: none;
+}
+
+.sport-card h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sport-card:hover {
+  border-color: #d20a11;
+}
+
+main > * {
+  background: #ffffff;
+  border: 2px solid #111111;
+  margin-bottom: 0.8rem;
+  padding: 0.9rem;
+}
+
+main ul {
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+main li {
+  border: 1px solid #111111;
+  padding: 0.45rem 0.6rem;
+}
+
+main h1,
+main h3 {
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+main a {
+  color: #101010;
+}
+
+main a:hover {
+  color: #d20a11;
 }
